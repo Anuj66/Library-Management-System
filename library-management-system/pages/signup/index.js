@@ -11,19 +11,25 @@ import {
     VStack
 } from "@chakra-ui/react";
 import {useState} from "react";
+import {useAuthContext} from "../../context/auth";
 
 function SignUp() {
 
     const [user, setUser] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
-        mobile: ''
+        phoneNumber: '',
+        roles: ['user']
     })
 
-    const onFormSubmit = (e) => {
+    const { signupApi } = useAuthContext()
+
+    const onFormSubmit = async (e) => {
         e.preventDefault()
         console.log("User : ", user)
+        const data = await signupApi(user)
+        console.log(data)
     }
 
     return (
@@ -37,8 +43,8 @@ function SignUp() {
                                 <FormLabel>Name</FormLabel>
                                 <Input
                                     type={"text"}
-                                    value={user.name}
-                                    onChange={e => setUser({...user, name: e.target.value})}
+                                    value={user.username}
+                                    onChange={e => setUser({...user, username: e.target.value})}
                                 />
                             </Box>
                             <Box>
@@ -61,8 +67,8 @@ function SignUp() {
                                 <FormLabel>Mobile No.</FormLabel>
                                 <NumberInput min={10} max={10}>
                                     <NumberInputField
-                                        value={user.mobile}
-                                        onChange={e => setUser({...user, mobile: e.target.value})}/>
+                                        value={user.phoneNumber}
+                                        onChange={e => setUser({...user, phoneNumber: e.target.value})}/>
                                 </NumberInput>
                             </Box>
                             <Box>

@@ -6,12 +6,12 @@ import {useAuthContext} from "../../context/auth";
 function Login() {
     const [user, setUser] = useState({username: '', password: ''})
 
-    const { loginApi } = useAuthContext()
+    const {loginApi} = useAuthContext()
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = async (e) => {
         e.preventDefault()
         console.log("User : ", user)
-        const data = loginApi(user)
+        const data = await loginApi(user)
         console.log("Data : ", data)
     }
 
@@ -20,7 +20,7 @@ function Login() {
         <Box m={"auto"} mt={"4rem"} py={"4rem"} px={"2rem"} maxWidth="30rem" borderWidth={"0.2rem"}
              borderRadius={"1rem"} boxShadow="md">
             <form onSubmit={onFormSubmit}>
-                <FormControl>
+                <FormControl isRequired>
                     <VStack spacing={'1.5rem'}>
                         <Box>
                             <FormLabel>Username</FormLabel>
@@ -33,7 +33,7 @@ function Login() {
                                    onChange={(e) => setUser({...user, password: e.target.value})}/>
                         </Box>
                         <Box pt={"1rem"}>
-                            <Button type={'submit'} colorScheme={"blue"}>Submit</Button>
+                            <Button type={'submit'} colorScheme={"blue"}>Login</Button>
                         </Box>
                     </VStack>
                 </FormControl>
