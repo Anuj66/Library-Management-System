@@ -18,8 +18,7 @@ function SignUp() {
         name: '',
         email: '',
         password: '',
-        mobile: '',
-        address: ''
+        mobile: ''
     })
 
     const onFormSubmit = (e) => {
@@ -32,58 +31,45 @@ function SignUp() {
              borderRadius={"1rem"} boxShadow="md">
             <form onSubmit={onFormSubmit}>
                 <FormControl isRequired>
-                    <HStack spacing={"4rem"}>
-                        <Box>
-                            <VStack spacing={"1.5rem"}>
-                                <Box>
-                                    <FormLabel>Name</FormLabel>
-                                    <Input
-                                        type={"text"}
-                                        value={user.name}
-                                        onChange={e => setUser({...user, name: e.target.value})}
-                                    />
-                                </Box>
-                                <Box>
-                                    <FormLabel>Email</FormLabel>
-                                    <Input
-                                        type={"email"}
-                                        value={user.email}
-                                        onChange={e => setUser({...user, email: e.target.value})}
-                                    />
-                                </Box>
-                                <Box>
-                                    <FormLabel>Password</FormLabel>
-                                    <Input
-                                        type={"password"}
-                                        value={user.password}
-                                        onChange={e => setUser({...user, password: e.target.value})}
-                                    />
-                                </Box>
-                            </VStack>
-                        </Box>
-                        <Box>
-                            <VStack spacing={"1.5rem"}>
-                                <Box>
-                                    <FormLabel>Mobile No.</FormLabel>
-                                    <NumberInput min={10} max={10}>
-                                        <NumberInputField
-                                            value={user.mobile}
-                                            onChange={e => setUser({...user, mobile: e.target.value})}/>
-                                    </NumberInput>
-                                </Box>
-                                <Box>
-                                    <FormLabel>Address</FormLabel>
-                                    <Textarea
-                                        value={user.address}
-                                        onChange={e => setUser({...user, address: e.target.value})}
-                                    />
-                                </Box>
-                                <Box>
-                                    <Button type={'submit'} colorScheme={"blackAlpha"}>Signup</Button>
-                                </Box>
-                            </VStack>
-                        </Box>
-                    </HStack>
+                    <Box>
+                        <VStack spacing={"1.5rem"}>
+                            <Box>
+                                <FormLabel>Name</FormLabel>
+                                <Input
+                                    type={"text"}
+                                    value={user.name}
+                                    onChange={e => setUser({...user, name: e.target.value})}
+                                />
+                            </Box>
+                            <Box>
+                                <FormLabel>Email</FormLabel>
+                                <Input
+                                    type={"email"}
+                                    value={user.email}
+                                    onChange={e => setUser({...user, email: e.target.value})}
+                                />
+                            </Box>
+                            <Box>
+                                <FormLabel>Password</FormLabel>
+                                <Input
+                                    type={"password"}
+                                    value={user.password}
+                                    onChange={e => setUser({...user, password: e.target.value})}
+                                />
+                            </Box>
+                            <Box>
+                                <FormLabel>Mobile No.</FormLabel>
+                                <NumberInput min={10} max={10}>
+                                    <NumberInputField
+                                        value={user.mobile}
+                                        onChange={e => setUser({...user, mobile: e.target.value})}/>
+                                </NumberInput>
+                            </Box>
+                            <Box>
+                                <Button type={'submit'} colorScheme={"blackAlpha"}>Signup</Button>
+                            </Box>
+                        </VStack>
+                    </Box>
                 </FormControl>
             </form>
         </Box>
