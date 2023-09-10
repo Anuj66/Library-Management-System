@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.validation.Valid;
-
 import com.lms.demo.model.ERole;
 import com.lms.demo.model.Role;
 import com.lms.demo.model.User;
@@ -18,6 +16,7 @@ import com.lms.demo.repository.RoleRepository;
 import com.lms.demo.repository.UserRepository;
 import com.lms.demo.security.jwt.JwtUtils;
 import com.lms.demo.security.services.UserDetailsImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
